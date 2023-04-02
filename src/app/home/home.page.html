@@ -1,20 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let ttitle of topHeadLines" >
+      <ion-avatar slot="start">
+        <img src="{{ttitle.urlToImage}}">
+      </ion-avatar>
+      <ion-label text-wrap>
+        <h3><b>{{ttitle.title}}</b></h3>
+       <h4>{{ttitle.description}}</h4>
+      </ion-label>
+        </ion-item>
+        </ion-list>
 </ion-content>

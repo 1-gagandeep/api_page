@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NewsapiService } from '../news-api.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor() {}
+  topHeadLines:any[] = []
+  constructor(private apiService:NewsapiService) {this.loadData()}
+
+  loadData(){
+    
+  }
+
+  ngOnInit() {
+      return this.apiService.getTopHeadLines().subscribe((results) => {
+        this.topHeadLines.push(...results.articles)
+        console.log(this.topHeadLines)
+      });
+  }
+
+  
 
 }
